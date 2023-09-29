@@ -4,6 +4,8 @@ import Sobremim from "./pages/Sobremim";
 import Menu from "./componentes/Menu";
 import Rodape from "componentes/Rodape";
 import PaginaPadrao from "componentes/PaginaPadrao";
+import Post from "pages/Post";
+import Error from "componentes/Error";
 
 //seletor coringa *
 //Cada route atua como uma página que será acessada, baseada no path
@@ -17,6 +19,7 @@ function AppRoutes() {
         <Route path="/" element={<PaginaPadrao />}>
           <Route index element={<Inicio />} />
           <Route path="sobremim" element={<Sobremim />} />
+          <Route path="posts/:id" element={< Post/>} />
         </Route>
 
         {/* 
@@ -28,7 +31,7 @@ function AppRoutes() {
 
         */}
 
-        <Route path="*" element={<div>Página não encontrada!</div>} />
+        <Route path="*" element={<Error />} />
       </Routes>
       <Rodape />
     </BrowserRouter>

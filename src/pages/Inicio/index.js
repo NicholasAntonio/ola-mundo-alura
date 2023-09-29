@@ -1,7 +1,7 @@
 
 import styles from './inicio.module.css';
 import posts from 'json/posts.json'
-import Post from "componentes/Post";
+import PostCard from "componentes/PostCard";
 
 //utilizando absolute imports em jsconfig.json permite menos poluição na hora do import
 
@@ -12,7 +12,7 @@ export default function Inicio() {
       <ul className={styles.posts}>
         {posts.map((post) => (
           <li key={post.id}>
-            <Post post={post}/>
+            <PostCard post={post}/>
           </li>
         ))}
       </ul>
