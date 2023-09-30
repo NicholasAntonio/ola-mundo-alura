@@ -6,6 +6,7 @@ import Rodape from "componentes/Rodape";
 import PaginaPadrao from "componentes/PaginaPadrao";
 import Post from "pages/Post";
 import Error from "componentes/Error";
+import ScrollToTop from "componentes/ScrollToTop";
 
 //seletor coringa *
 //Cada route atua como uma página que será acessada, baseada no path
@@ -13,13 +14,14 @@ import Error from "componentes/Error";
 function AppRoutes() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Menu />
 
       <Routes>
         <Route path="/" element={<PaginaPadrao />}>
           <Route index element={<Inicio />} />
           <Route path="sobremim" element={<Sobremim />} />
-          <Route path="posts/:id" element={< Post/>} />
+          
         </Route>
 
         {/* 
@@ -30,7 +32,7 @@ function AppRoutes() {
           pode-se utilizar o index presente na documentação para deixar uma rota com o mesmo caminho de sua rota pai, como está sendo feito acima
 
         */}
-
+        <Route path="posts/:id/*" element={< Post/>} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Rodape />
